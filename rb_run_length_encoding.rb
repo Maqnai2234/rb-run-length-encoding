@@ -9,13 +9,10 @@ def encode string_encode
     if i == 0
       temp_letter = string_encode[i]
     elsif i == (length_word-1)
-      if temp_letter == string_encode[i]
-        count_letter += 1
-        string_decode += "#{count_letter}#{temp_letter}"
-      else
-        string_decode += "#{count_letter}#{temp_letter}"
-        string_decode += "1#{string_encode[i]}"
-      end
+      status_last = temp_letter == string_encode[i]
+      count_letter += 1 if status_last
+      string_decode += "#{count_letter}#{temp_letter}"
+      string_decode += "1#{string_encode[i]}" unless status_last
     else
       if temp_letter == string_encode[i]
         count_letter += 1
@@ -26,7 +23,7 @@ def encode string_encode
       temp_letter = string_encode[i]      
     end 
   end
-  return string_decode
+  string_decode
 end
 
 def decode string
