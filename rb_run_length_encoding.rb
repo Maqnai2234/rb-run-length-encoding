@@ -32,4 +32,4 @@ end
 def decode string
 end
 
-puts encode("AAAAABBBZZZZDDDDDDDIIIX")
+puts encode("ABC")
