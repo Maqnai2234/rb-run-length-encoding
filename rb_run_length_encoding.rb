@@ -1,20 +1,24 @@
 require 'byebug'
 def encode string_encode
   string_decode = ""
-  temp_letter = string_encode[0]
   count_letter = 1
 
   length_word = string_encode.length
-  for i in (1..(length_word-1)) do
+  for i in (0..(length_word-1)) do
+    if i == 0
+      temp_letter = string_encode[i]
+      next
+    end
+    last_word = (i == (length_word-1))
     if temp_letter == string_encode[i]
       count_letter += 1
-      string_decode += encode_render(temp_letter, count_letter) if i == (length_word-1)
+      string_decode << encode_render(temp_letter, count_letter) if last_word
     else
-      string_decode += encode_render(temp_letter, count_letter)
-      string_decode += encode_render(string_encode[i] , count_letter) if i == (length_word-1)
+      string_decode << encode_render(temp_letter, count_letter)
       count_letter = 1
+      string_decode << encode_render(string_encode[i], count_letter) if last_word
     end
-    temp_letter = string_encode[i]      
+    temp_letter = string_encode[i]
   end
   string_decode
 end
@@ -29,5 +33,3 @@ end
 
 def decode string
 end
-
-puts encode("AAAABBBCCCF")
