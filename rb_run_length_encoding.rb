@@ -1,10 +1,14 @@
 def encode string
     string_encode = ""
-    string.each do |s|
-
+    temp_letter = ""
+    count_letter = 0
+    string.each_char do |s|
+        
     end
     return string_encode
 end
 
 def decode string
 end
+
+encode("AAAAABBBZZZZDDDDDDDIII")
