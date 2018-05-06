@@ -6,20 +6,15 @@ def encode string_encode
 
   length_word = string_encode.length
   for i in (1..(length_word-1)) do
-    if i == (length_word-1)
-      status_last = temp_letter == string_encode[i]
-      count_letter += 1 if status_last
-      string_decode += encode_render(temp_letter, count_letter)
-      string_decode += "#{string_encode[i]}" unless status_last
+    if temp_letter == string_encode[i]
+      count_letter += 1
+      string_decode += encode_render(temp_letter, count_letter) if i == (length_word-1)
     else
-      if temp_letter == string_encode[i]
-        count_letter += 1
-      else
-        string_decode += encode_render(temp_letter, count_letter)
-        count_letter = 1
-      end
-      temp_letter = string_encode[i]      
-    end 
+      string_decode += encode_render(temp_letter, count_letter)
+      string_decode += encode_render(string_encode[i] , count_letter) if i == (length_word-1)
+      count_letter = 1
+    end
+    temp_letter = string_encode[i]      
   end
   string_decode
 end
