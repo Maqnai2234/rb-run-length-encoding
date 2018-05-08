@@ -29,5 +29,3 @@ def decode string
   end
   string
 end
-
-puts decode("12AI7B2B")
