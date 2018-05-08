@@ -23,6 +23,11 @@ def encode_render(letter, count_letter)
 end
 
 def decode string
+  string = string.scan(/(\d+)?(.)/).inject("") do |str, (count, char)|
+    times = count.nil? ? 1 : count.to_i 
+    str << char * times
+  end
+  string
 end
 
-puts encode("AAABBSDASDASDER")
+puts decode("12AI7B2B")

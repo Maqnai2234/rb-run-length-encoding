@@ -13,4 +13,7 @@ describe 'rb_run_length_encoding' do
     it "decode string 5A3B4Z7D3I return to AAAAABBBZZZZDDDDDDDIII" do
         expect(decode("5A3B4Z7D3I")).to eq "AAAAABBBZZZZDDDDDDDIII"
     end
+    it "decode string 12AI7B2I return to AAAAAAAAAAAAIBBBBBBBII" do
+        expect(decode("12AI7B2I")).to eq "AAAAAAAAAAAAIBBBBBBBII"
+    end
 end
